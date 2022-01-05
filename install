@@ -1,0 +1,20 @@
+#!/bin/bash
+
+src=~/.test1
+dest=~/.test
+bkupdir=~/.test.old
+
+files=("awesome" "kitty" "zsh" "neofetch")
+
+mkdir -p "$bkupdir"
+
+echo "Backing up $dest"
+cp -r "$dest"/* "$dest".old/
+
+for file in "${files[@]}";
+do
+  echo "linking file $file to $dest";
+  ln -sf "$src"/"$file" "$dest"
+done
+
+

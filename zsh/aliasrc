@@ -1,0 +1,51 @@
+## ls output
+alias ls="ls --color=auto -F --group-directories-first"
+alias ll="ls -lh"
+alias la="ls -a"
+
+## cd shortcuts
+alias ..="cd .."
+
+## mkdir shortcuts
+alias mkdir="mkdir -pv"
+
+## clear shortcut
+alias clr="clear"
+
+## safety is best
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+alias ln="ln -iv"
+
+## color grep output
+alias grep="grep --color=auto"
+
+## xbps aliases
+alias xbps-i="sudo xbps-install -S"
+alias xbps-u="sudo xbps-install -Su"
+alias xbps-q="xbps-query -R"
+alias xbps-qs="xbps-query -Rs"
+
+## quick config edit
+alias edzsh="$EDITOR ~/.config/zsh/"
+alias edawesome="$EDITOR ~/.config/awesome/"
+alias edkitty="$EDITOR ~/.config/kitty/kitty.conf"
+alias ednvim="$EDITOR ~/.config/nvim/"
+
+## reload/source configs
+alias srcz="source ~/.config/zsh/.zshrc"
+
+## git
+alias gtcl="git clone"
+
+## launching applications
+alias neofetch="neofetch --ascii ~/.config/neofetch/ascii.txt"
+alias ytdl="yt-dlp"
+#alias sw="devour"
+#alias mpv="sw mpv"
+#alias zathura="sw zathura"
+
+## misc shortcuts
+alias ed="nvim"
+alias aping="ping -c 5 archlinux.org"
