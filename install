@@ -1,18 +1,18 @@
 #!/bin/bash
 
-src=~/.test1
-dest=~/.test
-bkupdir=~/.test.old
+src=~/dotfiles
+dest=~/.config
 
-files=("awesome" "kitty" "zsh" "neofetch")
+dots=("awesome" "kitty" "zsh" "neofetch")
 
-mkdir -p "$bkupdir"
+mkdir -p "$dest".old
 
-echo "Backing up $dest"
-cp -r "$dest"/* "$dest".old/
 
-for file in "${files[@]}";
+for file in "${dots[@]}";
 do
+  echo "Backing up $dest"
+  mv "$dest"/"$file" "$dest".old/
+  
   echo "linking file $file to $dest";
   ln -sf "$src"/"$file" "$dest"
 done
