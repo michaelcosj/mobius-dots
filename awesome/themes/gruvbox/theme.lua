@@ -115,7 +115,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "/gruvbox/titleb
 theme.titlebar_maximized_button_normal_active = themes_path .. "/gruvbox/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "/gruvbox/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = Awesome_cfg_dir .. "/wallpapers/wall1"
+theme.wallpaper = Awesome_cfg_dir .. "/wallpapers/wall3"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "/gruvbox/layouts/fairh.png"

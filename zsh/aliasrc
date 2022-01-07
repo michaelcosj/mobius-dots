@@ -26,6 +26,7 @@ alias xbps-i="sudo xbps-install -S"
 alias xbps-u="sudo xbps-install -Su"
 alias xbps-q="xbps-query -R"
 alias xbps-qs="xbps-query -Rs"
+alias xbps-ro="sudo xbps-remove -Ro"
 
 ## quick config edit
 alias edzsh="$EDITOR ~/.config/zsh/"
