@@ -16,6 +16,21 @@ local notified_full = false
 local notified_low = false
 local notified_critical = false
 
+local function notify_state_reset(perc)
+	-- Reset notified status
+	if perc < BAT_FULL then
+		notified_full = false
+	end
+
+	if perc > BAT_LOW then
+		notified_low = false
+	end
+
+	if perc > BAT_CRITICAL then
+		notified_critical = false
+	end
+end
+
 local function notify(perc)
 	-- Notify if Battery is full, low or at critical levels
 	if perc == BAT_FULL and not notified_full then
@@ -45,24 +60,17 @@ local function notify(perc)
 		notified_critical = true
 	end
 
-	-- Reset notified status
-	if perc < BAT_FULL then
-		notified_full = false
-	end
-
-	if perc > BAT_LOW then
-		notified_low = false
-	end
-
-	if perc > BAT_CRITICAL then
-		notified_critical = false
-	end
+	notify_state_reset(perc)
 end
 
-local bat_widget, _ = awful.widget.watch("/home/michael/.scripts/status bat", 2, function(widget, stdout)
+local bat_widget, _ = awful.widget.watch(_SCRIPTS_DIR .. "/status bat", 2, function(widget, stdout)
 	local perc = tonumber(string.match(stdout, "%d+"))
-	notify(perc)
+	if perc == nil then
+		widget:set_text("nil")
+		return
+	end
 
+	notify(perc)
 	widget:set_text(stdout)
 end)
 

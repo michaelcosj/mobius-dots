@@ -1,0 +1,75 @@
+#!/bin/bash
+
+set -e
+
+bat_stat() {
+  STATUS=$(cat /sys/class/power_supply/BAT0/status)
+  CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)
+
+  ramp=("" "" "" "" "" "" "" "" "" "")
+  ramp_charging=("" "" "" "" "" "" "")
+  ramp_none=""
+
+  if [[ $STATUS == "Charging" ]]; then
+    index=$(expr $(expr $(expr 7 \* $CHARGE) / 100) - 1) 
+    icon=${ramp_charging[$index]}
+  elif [[ $STATUS == "Discharging" ]]; then
+    index=$(expr $(expr $CHARGE / 10) - 1)
+    icon=${ramp[$index]}
+  elif [[ $STATUS == "Full" ]]; then
+    icon=${ramp[9]}
+  else
+    icon=$ramp_none
+  fi
+
+  echo " $icon  $CHARGE% "
+
+}
+
+net_stat() {
+  WIFI_SSID=$(iw dev | awk '/ssid/ {print $2;}')
+  ramp_wifi_conn="直"
+  ramp_wifi_disconn="睊"
+
+  if [[ $WIFI_SSID == '' ]]; then
+    echo " $ramp_wifi_disconn  "
+  else
+    echo " $ramp_wifi_conn  $WIFI_SSID "
+  fi
+}
+
+vol_stat() {
+  VOL_PERC=$(pamixer --get-volume-human)
+  echo $VOL_PERC
+}
+
+bri_stat() {
+  BRI_PERC=$(brightnessctl -m info | awk '{split($0,a,","); print a[4]}')
+  echo $BRI_PERC
+}
+
+while [[ $1 ]]; do
+  case "$1" in
+    bat | battery) 
+      bat_stat
+      exit
+    ;;
+    net | network)
+      net_stat
+      exit
+    ;;
+    vol | volume)
+      vol_stat
+      exit
+    ;;
+    bri | brightness)
+      bri_stat
+      exit
+    ;;
+    music)
+      echo "Not Implemented"
+      exit
+    ;;
+ esac
+done
+

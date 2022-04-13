@@ -16,7 +16,7 @@ awful.screen.connect_for_each_screen(function(s)
 	set_wallpaper(s)
 
 	-- Each screen has its own tag table.
-	awful.tag(Tags, s, awful.layout.layouts[1])
+	awful.tag(TAGS, s, awful.layout.layouts[1])
 
 	-- We need one layoutbox per screen.
 	s.mylayoutbox = awful.widget.layoutbox(s)

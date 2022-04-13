@@ -6,7 +6,7 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local themes_path = Awesome_cfg_dir .. "/themes"
+local themes_path = _THEMES_DIR
 
 local theme = {}
 
@@ -115,7 +115,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "/gruvbox/titleb
 theme.titlebar_maximized_button_normal_active = themes_path .. "/gruvbox/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "/gruvbox/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = Awesome_cfg_dir .. "/wallpapers/wall3"
+theme.wallpaper = _CONF_DIR .. "/wallpapers/wall"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "/gruvbox/layouts/fairh.png"

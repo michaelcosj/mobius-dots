@@ -62,24 +62,25 @@ return {
 	{
 		rule_any = {
 			type = { "normal", "dialog" },
+			-- floating = true,
 		},
-		properties = { titlebars_enabled = false },
+		properties = { titlebars_enabled = true },
 	},
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	{
 		rule = { class = "Firefox" },
-		properties = { tag = Tags[3], switchtotag = true },
+		properties = { tag = TAGS[3], switchtotag = true },
 	},
 
 	-- Set mpv to open in fullscreen and on tag 4
 	{
 		rule = { class = "mpv" },
-		properties = { fullscreen = true, tag = Tags[4], switchtotag = true },
+		properties = { fullscreen = true, tag = TAGS[4], switchtotag = true },
 	},
 	{
 		rule = { class = "zathura" },
-		properties = { tag = Tags[5], switchtotag = true },
+		properties = { tag = TAGS[5], switchtotag = true },
 	},
 }
 -- }}}

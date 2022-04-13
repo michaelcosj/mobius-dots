@@ -37,10 +37,10 @@ client.connect_signal("request::titlebars", function(c)
 			layout = wibox.layout.fixed.horizontal,
 		},
 		{ -- Middle
-			{ -- Title
-				align = "center",
-				widget = awful.titlebar.widget.titlewidget(c),
-			},
+			-- { -- Title
+			-- 	align = "center",
+			-- 	widget = awful.titlebar.widget.titlewidget(c),
+			-- },
 			buttons = buttons,
 			layout = wibox.layout.flex.horizontal,
 		},

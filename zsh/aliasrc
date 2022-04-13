@@ -38,15 +38,20 @@ alias ednvim="$EDITOR ~/.config/nvim/"
 alias srcz="source ~/.config/zsh/.zshrc"
 
 ## git
-alias gtcl="git clone"
+alias git-cl="git clone"
+alias git-a="git add"
+alias git-stat="git status"
+alias git-cum="git commit -m"
 
 ## launching applications
 alias neofetch="neofetch --ascii ~/.config/neofetch/ascii.txt"
 alias ytdl="yt-dlp"
+alias ed="nvim"
 #alias sw="devour"
 #alias mpv="sw mpv"
 #alias zathura="sw zathura"
 
 ## misc shortcuts
-alias ed="nvim"
 alias aping="ping -c 5 archlinux.org"
+alias showlogs="svlogtail"
+alias touchpad-on="$HOME/dotfiles/scripts/./set-touchpad on"

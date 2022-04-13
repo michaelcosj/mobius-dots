@@ -10,21 +10,24 @@ require("awful.autofocus")
 -- error handling
 require("config.errors")
 
-Awesome_cfg_dir = "~/.config/awesome"
-Themes_dir = Awesome_cfg_dir .. "/themes/"
-Scripts_dir = "~/.scripts"
+_CONF_DIR = "/home/michael/.config/awesome"
+_THEMES_DIR = _CONF_DIR .. "/themes"
+_SCRIPTS_DIR = "/home/michael/dotfiles/scripts/"
+
+-- run autostart script
+awful.spawn.with_shell(_SCRIPTS_DIR .. "autostart.sh")
 
 -- default apps
-Apps = {
+APPS = {
 	terminal = "kitty",
 	editor = os.getenv("EDITOR") or "nvim",
-	browser = "firefox",
+	browser = os.getenv("BROWSER") or "firefox",
 	filemanager = "dbus-launch pcmanfm",
 	screenshot_utility = "flameshot gui",
 }
 
 -- popular keys
-Keys = {
+KEYS = {
 	modkey = "Mod4",
 	alt = "Mod1",
 	shift = "Shift",
@@ -32,18 +35,7 @@ Keys = {
 }
 
 -- my tags
-Tags = { " オ ", " タ ", " ク ", " で ", " は ", " な ", " い " }
-
-local themes = {
-	gruvbox = Themes_dir .. "gruvbox/theme.lua",
-	multicolor = Themes_dir .. "multicolor/theme.lua",
-	nord = Themes_dir .. "nord/theme.lua",
-	powerarrow = Themes_dir .. "powerarrow/theme.lua",
-	powerarrow_dark = Themes_dir .. "powerarrow-dark/theme.lua",
-	rainbow = Themes_dir .. "rainbow/theme.lua",
-	steamburn = Themes_dir .. "steamburn/theme.lua",
-	vertex = Themes_dir .. "vertex/theme.lua",
-}
+TAGS = { " オ ", " タ ", " ク ", " で ", " は ", " な ", " い " }
 
 local Layouts = {
 	awful.layout.suit.tile,
@@ -55,14 +47,14 @@ local Layouts = {
 	--  awful.layout.suit.corner.nw,
 }
 
--- init theme
-beautiful.init(themes.gruvbox)
-
--- run autostart script
-awful.spawn.with_shell(Scripts_dir .. "/autostart.sh")
-
 -- set layouts
 awful.layout.layouts = Layouts
+
+-- init theme
+beautiful.init(_THEMES_DIR .. "/gruvbox/theme.lua")
+
+-- menu
+require("decoration.menu")
 
 -- set bindings
 local bindings = require("bindings")

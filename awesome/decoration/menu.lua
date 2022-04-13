@@ -1,10 +1,6 @@
 local awful = require("awful")
-local hotkeys_popup = require("awful.hotkeys_popup")
 local beautiful = require("beautiful")
-local menubar = require("menubar")
 
--- {{{ Menu
--- Create a launcher widget and a main menu
 myawesomemenu = {
 	{
 		"hotkeys",
@@ -12,8 +8,8 @@ myawesomemenu = {
 			hotkeys_popup.show_help(nil, awful.screen.focused())
 		end,
 	},
-	{ "manual", Apps.terminal .. " -e man awesome" },
-	{ "edit config", Apps.terminal .. " " .. Apps.editor .. " " .. awesome.conffile },
+	{ "manual", APPS.terminal .. " -e man awesome" },
+	{ "edit config", APPS.editor .. " " .. awesome.conffile },
 	{ "restart", awesome.restart },
 	{
 		"quit",
@@ -23,18 +19,36 @@ myawesomemenu = {
 	},
 }
 
+internet = {
+	{ "Firefox", "firefox" },
+	{ "Qutebrowser", "qutebrowser" },
+	{ "Discord", "Discord" },
+}
+
+multimedia = {
+	{ "Transmission", "transmission-gtk" },
+	{ "Simple Screen Recorder", "simplescreenrecorder" },
+	{ "gMTP", "gmtp" },
+}
+
+tools = {
+	{ "Neovim", "nvim" },
+	{ "Htop", "htop" },
+	{ "PCManFm", "pcmanfm" },
+}
+
+appsmenu = {
+	{ "Internet", internet },
+	{ "Multimedia", multimedia },
+	{ "Tools", tools },
+}
+
 mymainmenu = awful.menu({
 	items = {
-		{ "awesome", myawesomemenu },
-		{ "open terminal", terminal },
+		{ "awesome", myawesomemenu, beautiful.awesome_icon },
+		{ "apps", appsmenu },
+		{ "open terminal", APPS.terminal },
 	},
 })
 
-mylauncher = awful.widget.launcher({
-	image = beautiful.awesome_icon,
-	menu = mymainmenu,
-})
-
--- Menubar configuration
-menubar.utils.terminal = Apps.terminal
--- }}}
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })

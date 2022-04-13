@@ -6,7 +6,7 @@ local buttons = gears.table.join(
 		t:view_only()
 	end),
 
-	awful.button({ Keys.modkey }, 1, function(t)
+	awful.button({ KEYS.modkey }, 1, function(t)
 		if client.focus then
 			client.focus:move_to_tag(t)
 		end
@@ -14,7 +14,7 @@ local buttons = gears.table.join(
 
 	awful.button({}, 3, awful.tag.viewtoggle),
 
-	awful.button({ Keys.modkey }, 3, function(t)
+	awful.button({ KEYS.modkey }, 3, function(t)
 		if client.focus then
 			client.focus:toggle_tag(t)
 		end
