@@ -10,6 +10,7 @@ bat_stat() {
   ramp_charging=("" "" "" "" "" "" "")
   ramp_none=""
 
+  set +e
   if [[ $STATUS == "Charging" ]]; then
     index=$(expr $(expr $(expr 7 \* $CHARGE) / 100) - 1) 
     icon=${ramp_charging[$index]}

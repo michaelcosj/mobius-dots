@@ -64,9 +64,6 @@ root.keys(bindings.globalkeys)
 -- set window rules
 awful.rules.rules = require("config.rules")
 
--- menu
--- require("config.menu")
-
 -- topbar
 require("decoration.topbar")
 
