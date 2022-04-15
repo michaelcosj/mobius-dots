@@ -129,28 +129,9 @@ local gkeys = gears.table.join(
 		end
 	end, { description = "restore minimized", group = "client" }),
 
-	--[ Launching Programs ]--
-	-- Terminal
-	awful.key({ KEYS.modkey }, "Return", function()
-		awful.spawn(APPS.terminal)
-	end, { description = "open a terminal", group = "launcher" }),
-
-	-- Web browser
-	awful.key({ KEYS.modkey }, "w", function()
-		awful.spawn(APPS.browser)
-	end, { description = "open browser", group = "launcher" }),
-
-	-- File manager
-	awful.key({ KEYS.modkey, KEYS.alt }, "f", function()
-		awful.spawn(APPS.filemanager)
-	end, { description = "open file manager", group = "launcher" }),
-
-	-- Editor
-	awful.key({ KEYS.modkey, KEYS.shift }, "e", function()
-		awful.spawn(APPS.editor)
-	end, { description = "open editor", group = "launcher" }),
-
-	-- Increase brightness
+	--[ System ]--
+	-- [ Brightness ]--
+	-- increase brightness
 	awful.key({}, "XF86MonBrightnessUp", function()
 		awful.spawn(bri_set_cmd .. "+5%")
 		brightness_notify()
@@ -162,6 +143,7 @@ local gkeys = gears.table.join(
 		brightness_notify()
 	end, { description = "Decrease brightness", group = "launcher" }),
 
+	-- [ Volume ]--
 	-- Increase volume
 	awful.key({}, "XF86AudioRaiseVolume", function()
 		awful.spawn(vol_set_cmd .. "-i 5")
@@ -174,40 +156,11 @@ local gkeys = gears.table.join(
 		volume_notify()
 	end, { description = "Decrease volume", group = "launcher" }),
 
-	-- Take screenshot
-	awful.key({}, "Print", function()
-		awful.spawn(APPS.screenshot_utility)
-	end, { description = "Take screenshot", group = "launcher" }),
-
-	-- Prompt
-	awful.key({ KEYS.modkey }, "p", function()
-		awful.spawn("rofi -show drun")
-	end, { description = "run rofi prompt", group = "launcher" }),
-
-	-- Opened Windows
-	awful.key({ KEYS.modkey, KEYS.alt }, "w", function()
-		awful.spawn("rofi -show window")
-	end, { description = "rofi windows", group = "launcher" }),
-
-	-- Emoji menu
-	awful.key({ KEYS.modkey, KEYS.alt }, "e", function()
-		awful.spawn("rofi -show emoji")
-	end, { description = "rofi emoji menu", group = "launcher" }),
-
-	-- Calculator
-	awful.key({ KEYS.modkey, KEYS.alt }, "c", function()
-		awful.spawn("rofi -show calc")
-	end, { description = "rofi calculator", group = "launcher" }),
-
-	-- Rofi run prompt
-	awful.key({ KEYS.modkey, KEYS.alt }, "x", function()
-		awful.spawn("rofi -show run")
-	end, { description = "rofi run prompt", group = "launcher" }),
-
-	-- Prompt
-	awful.key({ KEYS.modkey, KEYS.shift }, "q", function()
-		awful.spawn.with_shell(_SCRIPTS_DIR .. "/rofi-power-menu-script.sh")
-	end, { description = "run rofi power menu", group = "launcher" })
+	-- Mute sound
+	awful.key({}, "XF86AudioMute", function()
+		awful.spawn(vol_set_cmd .. "-t")
+		volume_notify()
+	end, { description = "Mute sound", group = "launcher" })
 )
 
 --

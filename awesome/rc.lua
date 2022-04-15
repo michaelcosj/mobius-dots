@@ -5,6 +5,7 @@ pcall(require, "luarocks.loader")
 -- standard libraries
 local awful = require("awful")
 local beautiful = require("beautiful")
+local gears = require("gears")
 require("awful.autofocus")
 
 -- error handling
@@ -37,18 +38,17 @@ KEYS = {
 -- my tags
 TAGS = { " オ ", " タ ", " ク ", " で ", " は ", " な ", " い " }
 
-local Layouts = {
+local layouts = {
+	awful.layout.suit.max,
 	awful.layout.suit.tile,
 	awful.layout.suit.floating,
 	awful.layout.suit.fair,
-	awful.layout.suit.max,
 	awful.layout.suit.max.fullscreen,
 	awful.layout.suit.magnifier,
-	--  awful.layout.suit.corner.nw,
 }
 
 -- set layouts
-awful.layout.layouts = Layouts
+awful.layout.layouts = layouts
 
 -- init theme
 beautiful.init(_THEMES_DIR .. "/gruvbox/theme.lua")

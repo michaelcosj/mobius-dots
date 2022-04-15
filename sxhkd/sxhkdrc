@@ -1,0 +1,39 @@
+# terminal emulator
+super + Return
+  kitty
+
+# browser
+super + w
+  firefox
+
+# file manager
+super + alt + f
+  dbus-launch pcmanfm
+
+# editor
+super + shift + e
+  kitty nvim
+
+# programs launcher
+super + p
+  rofi -show drun
+
+# opened windows
+super + alt + w
+  rofi -show window
+
+# emoji select
+super + alt + e
+  rofi -show emoji
+
+# rofi run prompt
+super + alt + x
+  rofi -show run
+
+# power menu
+super + shift + q
+  $HOME/dotfiles/scripts/./rofi-power-menu-script.sh
+
+# screenshot
+Print
+  flameshot gui

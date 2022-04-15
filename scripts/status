@@ -39,6 +39,7 @@ net_stat() {
 }
 
 vol_stat() {
+  set +e
   VOL_PERC=$(pamixer --get-volume-human)
   echo $VOL_PERC
 }

@@ -3,17 +3,26 @@ local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 
+-- Toggle titlebar on or off depending on s. Creates titlebar if it doesn't exist
+local function setTitlebar(client, s)
+	if s then
+		if client.titlebar == nil then
+			client:emit_signal("request::titlebars", "rules", {})
+		end
+		awful.titlebar.show(client)
+	else
+		awful.titlebar.hide(client)
+	end
+end
+
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
-	-- Set the windows at the slave,
-	-- i.e. put it at the end of others instead of setting it master.
-	-- if not awesome.startup then awful.client.setslave(c) end
-
 	if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
 	end
+	setTitlebar(c, c.floating or c.first_tag.layout == awful.layout.suit.floating)
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -64,7 +73,24 @@ end)
 client.connect_signal("focus", function(c)
 	c.border_color = beautiful.border_focus
 end)
+
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
+end)
+
+--Toggle titlebar on floating status change
+client.connect_signal("property::floating", function(c)
+	setTitlebar(c, c.floating or c.first_tag and c.first_tag.layout.name == "floating")
+end)
+
+-- Show titlebars on tags with the floating layout
+tag.connect_signal("property::layout", function(t)
+	for _, c in pairs(t:clients()) do
+		if t.layout == awful.layout.suit.floating then
+			setTitlebar(c, true)
+		else
+			setTitlebar(c, false)
+		end
+	end
 end)
 -- }}}

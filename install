@@ -3,7 +3,7 @@
 src=~/dotfiles
 dest=~/.config
 
-dots=("awesome" "kitty" "zsh" "neofetch")
+dots=("awesome" "kitty" "zsh" "neofetch" "lf" "sxhkd")
 
 mkdir -p "$dest".old
 
