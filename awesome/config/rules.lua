@@ -41,7 +41,7 @@ return {
 				"Wpa_gui",
 				"veromix",
 				"xtightvncviewer",
-				"firefox",
+				"Firefox",
 				"qimgv",
 			},
 
@@ -70,7 +70,7 @@ return {
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	{
-		rule = { class = "firefox" },
+		rule = { class = "Firefox", "Navigator" },
 		properties = { tag = TAGS[3], switchtotag = true },
 	},
 

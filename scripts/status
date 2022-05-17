@@ -24,18 +24,24 @@ bat_stat() {
   fi
 
   echo " $icon  $CHARGE% "
-
 }
 
 net_stat() {
+  ETH_CONN=$(nmcli | awk '/enp0/ {print $2; exit;}')
   WIFI_SSID=$(iw dev | awk '/ssid/ {print $2;}')
+
+  ramp_eth=""
   ramp_wifi_conn="直"
   ramp_wifi_disconn="睊"
 
+  if [[ $ETH_CONN == 'connected' ]]; then
+    ramp_eth="  ETH "
+  fi
+
   if [[ $WIFI_SSID == '' ]]; then
-    echo " $ramp_wifi_disconn  "
+    echo "$ramp_eth $ramp_wifi_disconn  "
   else
-    echo " $ramp_wifi_conn  $WIFI_SSID "
+    echo " $ramp_eth $ramp_wifi_conn  $WIFI_SSID "
   fi
 }
 

@@ -48,6 +48,10 @@ mymainmenu = awful.menu({
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
 		{ "apps", appsmenu },
 		{ "open terminal", APPS.terminal },
+		{
+			"power menu",
+			_SCRIPTS_DIR .. "./rofi-power-menu-script.sh",
+		},
 	},
 })
 

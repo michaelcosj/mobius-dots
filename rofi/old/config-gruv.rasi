@@ -1,0 +1,88 @@
+configuration {
+	modi:				"drun,run,window,calc,emoji";
+	font:				"Termsyn 10";
+	display-drun: 			"";
+	sidebar-mode: 			false;
+	show-icons:                     true;
+	icon-theme: 			"Gruvbox-Material-Dark";
+}
+
+@theme "/dev/null"
+
+* {
+	bg:				#32302f;
+	fg:				#fbf1c7;
+	button:				#8ec07c;
+
+	background-color:		@bg;
+	text-color:			@fg;
+}
+
+window { width: 50%; }
+
+prompt { enabled: false; }
+
+pfp {
+	padding:			50px;
+	width:				120px;
+	expand:				false;
+	border:				1px;
+	border-color:			@bg;
+	background-image:               url("img/lol.jpg", height);
+}
+
+entry {
+	placeholder:			"Search";
+	expand:                         true;
+	padding:                        10px 2% 10px 2%;
+	vertical-align:			0.5;
+	background-color:               @button;
+	text-color:			@fg;
+        placeholder-color:              @fg;
+	margin:				29px 0 29px 0;
+	border:				5px;
+	border-color:			@bg;
+}
+
+inputbar {
+	children: 			[ pfp, entry ];
+	text-color:                     @fg;
+	expand:                         false;
+	spacing:			64px;
+	padding:			64px 64px 0 64px;
+}
+
+listview {
+	columns:                        2;
+	lines:	                        4;
+	cycle:                          false;
+	dynamic:                        true;
+	layout:                         vertical;
+	padding:			16px 32px 32px 32px;
+}
+
+mainbox {
+	children:                       [ inputbar, listview ];
+	spacing:                       	2%;
+	layout:				horizontal;
+}
+
+element {
+	orientation:                    horizontal;
+	padding:                        1.5% 0% 1.5% 0%;
+}
+
+element-text {
+	expand:                         true;
+	vertical-align:                 1;
+	margin:                         0.5% 3% 0% 3%;
+	background-color:               inherit;
+        text-color:                     inherit;
+}
+
+element-icon {
+    	size:                           24px;
+	background-color:		inherit;
+    	horizontal-align:	 	0.5;
+}
+element selected { background-color: @button; }
