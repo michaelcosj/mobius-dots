@@ -46,6 +46,7 @@ local function notify(perc)
 			preset = notify_preset,
 			text = "Battery Low, Plug in Charger",
 			fg = beautiful.fg_urgent,
+			border_color = beautiful.border_urgent,
 			replaces_id = bat_id,
 		}).id
 		notified_low = true
@@ -55,6 +56,7 @@ local function notify(perc)
 			preset = notify_preset,
 			text = "Battery Critical, Plug in Charger Now",
 			fg = beautiful.fg_urgent,
+			border_color = beautiful.border_urgent,
 			replaces_id = bat_id,
 		}).id
 		notified_critical = true
