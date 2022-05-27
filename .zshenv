@@ -7,6 +7,7 @@ export ZDOTDIR="$CONFIGDIR/zsh"
 # env for applications
 export EDITOR="nvim"
 export BROWSER="firefox"
+export TERM="xterm-kitty"
 
 #.Net
 export DOTNET_ROOT="$HOME/.dotnet"
@@ -31,3 +32,4 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 # export QT_QPA_PLATFORMTHEME=gtk2
 
 . "$HOME/.cargo/env"
+

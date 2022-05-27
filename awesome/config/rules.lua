@@ -56,21 +56,16 @@ return {
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
-		properties = { floating = true },
+		properties = {
+			floating = true,
+			border_width = beautiful.border_width,
+			border_color = beautiful.border_normal,
+		},
 	},
-
-	-- Add titlebars to normal clients and dialogs
-	-- {
-	-- 	rule_any = {
-	-- 		type = { "normal", "dialog" },
-	-- 		-- floating = true,
-	-- 	},
-	-- 	properties = { titlebars_enabled = true },
-	-- },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	{
-		rule = { class = "Firefox", "Navigator" },
+		rule = { class = "Firefox", name = "Mozilla Firefox" },
 		properties = { tag = TAGS[3], switchtotag = true },
 	},
 
@@ -81,8 +76,13 @@ return {
 	},
 
 	{
-		rule = { class = "zathura" },
+		rule = { class = "Zathura" },
 		properties = { tag = TAGS[5], switchtotag = true },
+	},
+
+	{
+		rule = { class = "Transmission-gtk" },
+		properties = { tag = TAGS[7], switchtotag = false },
 	},
 }
 -- }}}

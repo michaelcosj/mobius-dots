@@ -5,7 +5,7 @@ pcall(require, "luarocks.loader")
 -- standard libraries
 local awful = require("awful")
 local beautiful = require("beautiful")
-local gears = require("gears")
+
 require("awful.autofocus")
 
 -- error handling
@@ -22,9 +22,6 @@ awful.spawn.with_shell(_SCRIPTS_DIR .. "autostart.sh")
 APPS = {
 	terminal = "kitty",
 	editor = os.getenv("EDITOR") or "nvim",
-	browser = os.getenv("BROWSER") or "firefox",
-	filemanager = "dbus-launch pcmanfm",
-	screenshot_utility = "flameshot gui",
 }
 
 -- popular keys
@@ -51,7 +48,7 @@ local layouts = {
 awful.layout.layouts = layouts
 
 -- init theme
-beautiful.init(_THEMES_DIR .. "/gruvbox/theme.lua")
+beautiful.init(_THEMES_DIR .. "/catppuccin/theme.lua")
 
 -- menu
 require("decoration.menu")
@@ -65,7 +62,7 @@ root.keys(bindings.globalkeys)
 awful.rules.rules = require("config.rules")
 
 -- topbar
-require("decoration.topbar")
+require("decoration.bar")
 
 -- signals
 require("config.signals")

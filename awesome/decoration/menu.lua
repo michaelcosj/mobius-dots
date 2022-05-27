@@ -1,7 +1,8 @@
+---@diagnostic disable: undefined-global
 local awful = require("awful")
 local beautiful = require("beautiful")
 
-myawesomemenu = {
+local myawesomemenu = {
 	{
 		"hotkeys",
 		function()
@@ -19,31 +20,31 @@ myawesomemenu = {
 	},
 }
 
-internet = {
+local internet = {
 	{ "Firefox", "firefox" },
 	{ "Qutebrowser", "qutebrowser" },
 	{ "Discord", "Discord" },
 }
 
-multimedia = {
+local multimedia = {
 	{ "Transmission", "transmission-gtk" },
 	{ "Simple Screen Recorder", "simplescreenrecorder" },
 	{ "gMTP", "gmtp" },
 }
 
-tools = {
+local tools = {
 	{ "Neovim", "nvim" },
 	{ "Htop", "htop" },
-	{ "PCManFm", "pcmanfm" },
+	{ "Thunar", "thunar" },
 }
 
-appsmenu = {
+local appsmenu = {
 	{ "Internet", internet },
 	{ "Multimedia", multimedia },
 	{ "Tools", tools },
 }
 
-mymainmenu = awful.menu({
+Mainmenu = awful.menu({
 	items = {
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
 		{ "apps", appsmenu },
@@ -55,4 +56,4 @@ mymainmenu = awful.menu({
 	},
 })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+-- local launcher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = Mainmenu })

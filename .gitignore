@@ -4,3 +4,4 @@ zsh/.zcompdump
 zsh/.cache
 kitty/current-theme.conf
 kitty/kitty.conf.bak
+rofi/config.rasi
