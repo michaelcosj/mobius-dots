@@ -66,7 +66,7 @@ return {
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	{
 		rule = { class = "Firefox", name = "Mozilla Firefox" },
-		properties = { tag = TAGS[3], switchtotag = true },
+		properties = { tag = TAGS[3], switchtotag = false },
 	},
 
 	-- Set mpv to open in fullscreen and on tag 4
@@ -77,7 +77,7 @@ return {
 
 	{
 		rule = { class = "Zathura" },
-		properties = { tag = TAGS[5], switchtotag = true },
+		properties = { tag = TAGS[5], switchtotag = false },
 	},
 
 	{

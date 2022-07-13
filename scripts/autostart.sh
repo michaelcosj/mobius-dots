@@ -7,6 +7,8 @@ function run {
   fi
 }
 
+export $(dbus-launch)
+
 # audio stuff
 run pipewire # audio deamon
 run pipewire-media-session # audio deamon

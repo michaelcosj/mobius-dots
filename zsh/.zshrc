@@ -39,11 +39,11 @@ zstyle ':vcs_info:git:*' formats       '[%b%u%c]'
 zstyle ':vcs_info:git:*' actionformats '[%b|%a%u%c]'
 
 setprompt() {
-    PS1="%F{blue}(%F{yellow}%~%F{blue})"$'\n'"%(?..%F{red}%?)%F{blue}->%f"
+    PS1="%F{blue}[%F{yellow}%~%F{blue}]"$'\n'"%(?..%F{red}%?)%F{blue}->%f"
     RPS1='%F{cyan}${vcs_info_msg_0_}%f'
 }
 
 
 setprompt
 
-echo "( ^-^)/ 'Hello There!'"
+echo '\( ^-^)/ "Hello Sailor!"'

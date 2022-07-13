@@ -46,7 +46,7 @@ theme.bg_minimize = white
 theme.bg_systray = black0
 
 theme.fg_normal = white
-theme.fg_focus = mauve
+theme.fg_focus = green
 theme.fg_urgent = red
 theme.fg_minimize = black0
 
